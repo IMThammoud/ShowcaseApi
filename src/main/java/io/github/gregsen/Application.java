@@ -10,6 +10,8 @@ import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
+import org.apache.catalina.webresources.DirResourceSet;
+import org.apache.catalina.webresources.StandardRoot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.bridge.SLF4JBridgeHandler;
@@ -52,6 +54,8 @@ public class Application {
          */
         tomcat.getConnector();
 
+        
+
 
         // Adding new servlets can be done by using a static method and providing the context, in which the servlet should run,
         // a name for the servlet and the actual class. The class has to implement jakarta.servlet.Servlet.
@@ -64,6 +68,8 @@ public class Application {
 
         // Add welcome html file
         context.addWelcomeFile("showcase.html");
+
+        context.setResources(context.getResources());;
         
         
         
