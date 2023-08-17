@@ -1,10 +1,10 @@
 package io.github.gregsen;
 
 
-import io.github.gregsen.servlets.MyShowcase;
+import io.github.gregsen.servlets.ShowcaseGET;
 import io.github.gregsen.servlets.NotFoundServlet;
 import io.github.gregsen.servlets.ServerInfoServlet;
-import io.github.gregsen.servlets.MyShowcase;
+import io.github.gregsen.servlets.ShowcaseGET;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
@@ -57,16 +57,21 @@ public class Application {
         Tomcat.addServlet(context, "serverInfo", new ServerInfoServlet());
         Tomcat.addServlet(context, "notFound", new NotFoundServlet());
         // This adds my Test-Servlet to Show how my API works
-        Tomcat.addServlet(context, "showcase", new MyShowcase());
+        Tomcat.addServlet(context, "showcaseGET", new ShowcaseGET());
+
+        // Add welcome html file
+        context.addWelcomeFile("showcase.html");
+        
+        
 
         /*
          * Adding a mapping from an URL to a servlet that will handle the HTTP request coming via this URL.
          * If the servlet does not have an HTTP method for the request (i.e. GET, POST, etc), a 405 error will be thrown
          */
-        context.addServletMappingDecoded("/*", "notFound"); // catchall to prevent default tomcat error page
+       
         context.addServletMappingDecoded("/api/*", "serverInfo");
         // This maps the right URL to my Servlet
-        context.addServletMappingDecoded("/api/showcase","showcase");
+        context.addServletMappingDecoded("/api/showcaseGET","showcaseGET");
         
 
         // Start the server. This will initialize all the servlets at once (so, no need to call tomcat.init() ).
