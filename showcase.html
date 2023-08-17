@@ -5,18 +5,19 @@
     <title>Document</title>
 </head>
 <body>
-    Demonstration mit GET-Methode
-    <form action="servlets/showcaseGET" method="get">
+    <h1 style="text-align: center;">Send Request and/or Data to Servlet</h1>
+    <p style="text-align: center;">GET-Request</p>
+    <form style="text-align: center;" action="api/showcaseGET" method="get">
         <input type="text" placeholder="First Name" name="firstName">
         <input type="text" placeholder="Last Name" name="lastName">
-        <input type="submit">
+        <input type="submit" value="submit">
     </form>
 
-    Demonstration mit POST-Methode
-    <form action="servlets/showcasePOST" method="post">
+    <p style="text-align: center;">POST-Request</p>
+    <form style="text-align: center;" action="api/showcasePOST" method="post">
         <input type="text" placeholder="First Name" name="firstName">
         <input type="text" placeholder="Last Name" name="lastName">
-        <input type="submit">
+        <input type="submit" value="submit">
     </form>
     
 </body>

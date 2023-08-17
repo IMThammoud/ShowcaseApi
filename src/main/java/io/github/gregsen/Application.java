@@ -59,15 +59,15 @@ public class Application {
 
         // Adding new servlets can be done by using a static method and providing the context, in which the servlet should run,
         // a name for the servlet and the actual class. The class has to implement jakarta.servlet.Servlet.
+        Tomcat.addServlet(context, "default", new DefaultServlet());
         Tomcat.addServlet(context, "serverInfo", new ServerInfoServlet());
         Tomcat.addServlet(context, "notFound", new NotFoundServlet());
         // This adds my Test-Servlet to Show how my API works
         Tomcat.addServlet(context, "showcaseGET", new ShowcaseGET());
         // Add default servlet 
-        Tomcat.addServlet(context, "default", new DefaultServlet());
+        
 
-        // Add welcome html file
-        context.addWelcomeFile("showcase.html");
+        
 
         context.setResources(context.getResources());;
         
@@ -78,12 +78,14 @@ public class Application {
          * Adding a mapping from an URL to a servlet that will handle the HTTP request coming via this URL.
          * If the servlet does not have an HTTP method for the request (i.e. GET, POST, etc), a 405 error will be thrown
          */
-        
+        context.addServletMappingDecoded("/", "default");
         context.addServletMappingDecoded("/api/*", "serverInfo");
         // This maps the right URL to my Servlet
         context.addServletMappingDecoded("/api/showcaseGET","showcaseGET");
-        // Map the default Servlet to "/" so tomcat reats welcome files
-        context.addServletMappingDecoded("/", "default");
+
+        context.addWelcomeFile("showcase.html");
+        
+        
         
 
         

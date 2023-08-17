@@ -31,7 +31,7 @@ public class ShowcaseGET extends HttpServlet {
         // This will be Executed if the a Request-Parameter was sent with the GET-Request, EXAMPLE: /api/showcase?hassan
         // The Parameter in this case is 'hassan' and will be printed out, if there is no Parameter then this block will be skipped
         if (!firstRequestParameter.isEmpty()) {
-            writer.write("\n\n You added this to the form as Parameter: " + firstRequestParameter + " " + secondRequestParameter);
+            writer.write("\n\n You filled this into the form: " + "\nFirstname: "+firstRequestParameter + " " + " Lastname: " + secondRequestParameter);
         }
 
         // flush that writer and close it, we have to keep it clean out here :D
