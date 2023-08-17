@@ -4,6 +4,7 @@ package io.github.gregsen;
 import io.github.gregsen.servlets.ShowcaseGET;
 import io.github.gregsen.servlets.ShowcasePOST;
 import io.github.gregsen.servlets.NotFoundServlet;
+import io.github.gregsen.servlets.ProcessNameServlet;
 import io.github.gregsen.servlets.ServerInfoServlet;
 import io.github.gregsen.servlets.ShowcaseGET;
 
@@ -66,6 +67,9 @@ public class Application {
         // This adds my Test-Servlet to Show how my API works
         Tomcat.addServlet(context, "showcaseGET", new ShowcaseGET());
         Tomcat.addServlet(context, "showcasePOST", new ShowcasePOST());
+
+        // Add the Name-generator Servlet to Tomcat
+        Tomcat.addServlet(context, "processName", new ProcessNameServlet());
        
         // add a html as welcome Page to context
         context.addWelcomeFile("showcase.html");
@@ -87,7 +91,7 @@ public class Application {
         // This maps the right URL to my Servlet
         context.addServletMappingDecoded("/api/showcaseGET","showcaseGET");
         context.addServletMappingDecoded("/api/showcasePOST", "showcasePOST");
-        
+        context.addServletMappingDecoded("/api/processName", "processName");
         
         
 

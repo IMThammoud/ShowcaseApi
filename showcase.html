@@ -3,9 +3,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 style="text-align: center;font-family: 'Courier New', Courier, monospace;">Send Request and/or Data to Servlet</h1>
+    <h1 style="text-align: center;font-family: 'Courier New', Courier, monospace;">Send Request with/without Data to Servlet</h1>
     <p style="text-align: center;">GET-Request</p>
     <form style="text-align: center;" action="api/showcaseGET" method="get">
         <input type="text" placeholder="First Name" name="firstName">
@@ -21,12 +22,13 @@
     </form>
 
     <h2 style="text-align: center;margin-top: 10%;"> My Random-Name-Generator</h2>
-    <form style="text-align: center;" action="" method="post">
-        <input type="text" placeholder="Please type in your Name">
+    <h3 style="text-align: center;">This Tool generates a random Username for you by triggering an Rest-API </h3>
+    <form style="text-align: center;" action="/api/processName" method="post">
+        <input type="text" placeholder="Please type in your Name" name="name">
         <p>Choose the type of Adjective that will be added to your name.</p>
-        <input type="radio" name="1" id=""> Soft-Adjective
-        <input type="radio" name="2" id=""> Heroic-Adjective
-        <input type="radio" name="3" id=""> Random-Adjective
+        <input type="radio" name="adjective" id="" value="1"> Soft-Adjective
+        <input type="radio" name="adjective" id="" value="2"> Heroic-Adjective
+        <input type="radio" name="adjective" id="" value="3"> Random-Adjective
         <br>
         <br>
         <input type="submit" value="SUBMIT">
