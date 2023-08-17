@@ -5,7 +5,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Send Request and/or Data to Servlet</h1>
+    <h1 style="text-align: center;font-family: 'Courier New', Courier, monospace;">Send Request and/or Data to Servlet</h1>
     <p style="text-align: center;">GET-Request</p>
     <form style="text-align: center;" action="api/showcaseGET" method="get">
         <input type="text" placeholder="First Name" name="firstName">
@@ -18,6 +18,18 @@
         <input type="text" placeholder="First Name" name="firstName">
         <input type="text" placeholder="Last Name" name="lastName">
         <input type="submit" value="submit">
+    </form>
+
+    <h2 style="text-align: center;margin-top: 10%;"> My Random-Name-Generator</h2>
+    <form style="text-align: center;" action="" method="post">
+        <input type="text" placeholder="Please type in your Name">
+        <p>Choose the type of Adjective that will be added to your name.</p>
+        <input type="radio" name="1" id=""> Soft-Adjective
+        <input type="radio" name="2" id=""> Heroic-Adjective
+        <input type="radio" name="3" id=""> Random-Adjective
+        <br>
+        <br>
+        <input type="submit" value="SUBMIT">
     </form>
     
 </body>

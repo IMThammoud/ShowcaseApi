@@ -2,6 +2,7 @@ package io.github.gregsen;
 
 
 import io.github.gregsen.servlets.ShowcaseGET;
+import io.github.gregsen.servlets.ShowcasePOST;
 import io.github.gregsen.servlets.NotFoundServlet;
 import io.github.gregsen.servlets.ServerInfoServlet;
 import io.github.gregsen.servlets.ShowcaseGET;
@@ -59,12 +60,15 @@ public class Application {
 
         // Adding new servlets can be done by using a static method and providing the context, in which the servlet should run,
         // a name for the servlet and the actual class. The class has to implement jakarta.servlet.Servlet.
+
+        // added default Servlet to display HTML page at root
         Tomcat.addServlet(context, "default", new DefaultServlet());
-        Tomcat.addServlet(context, "serverInfo", new ServerInfoServlet());
-        Tomcat.addServlet(context, "notFound", new NotFoundServlet());
         // This adds my Test-Servlet to Show how my API works
         Tomcat.addServlet(context, "showcaseGET", new ShowcaseGET());
-        // Add default servlet 
+        Tomcat.addServlet(context, "showcasePOST", new ShowcasePOST());
+       
+        // add a html as welcome Page to context
+        context.addWelcomeFile("showcase.html");
         
 
         
@@ -79,11 +83,10 @@ public class Application {
          * If the servlet does not have an HTTP method for the request (i.e. GET, POST, etc), a 405 error will be thrown
          */
         context.addServletMappingDecoded("/", "default");
-        context.addServletMappingDecoded("/api/*", "serverInfo");
+
         // This maps the right URL to my Servlet
         context.addServletMappingDecoded("/api/showcaseGET","showcaseGET");
-
-        context.addWelcomeFile("showcase.html");
+        context.addServletMappingDecoded("/api/showcasePOST", "showcasePOST");
         
         
         

@@ -2,20 +2,17 @@ package io.github.gregsen.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class ShowcaseGET extends HttpServlet {
-
+public class ShowcasePOST extends HttpServlet{
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 
         // this String will be printed if this endpoint is triggered
-        final String greeting = "Youre on my Showcase endpoint. You sent a GET-REQUEST! \nif you want to display your name on this page then add it to the form.";
+        final String greeting = "You sent a POST-Request and this is your RESPONSE! \nif you want to display your name on this page then add it to the form.";
 
         // This String stores the Request-Parameter that was sent with the GET-Request on this Endpoint
         final String firstRequestParameter = req.getParameter("firstName");
@@ -38,4 +35,6 @@ public class ShowcaseGET extends HttpServlet {
         writer.flush();
         writer.close();
     }
-}
+        
+    }
+
